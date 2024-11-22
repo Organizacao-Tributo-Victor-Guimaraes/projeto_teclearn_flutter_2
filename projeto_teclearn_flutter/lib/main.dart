@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'telalogin.dart';
+import 'seletorfase.dart';
 
 void main() {
   runApp(QuizApp());
@@ -10,7 +12,7 @@ class QuizApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: QuizPage(),
+      home: TelaLogin(),
     );
   }
 }
@@ -70,6 +72,19 @@ class _QuizPageState extends State<QuizPage> {
       isAnswerCorrect = (selectedAnswer == correctAnswer);
 
       if (!isAnswerCorrect) {
+        // Exibir mensagem de erro
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Você errou a pergunta!',
+              style: TextStyle(color: Colors.white),
+            ),
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 2),
+          ),
+        );
+
+        // Reduzir vidas
         lives--;
         if (lives == 0) {
           _showGameOverDialog();
@@ -174,6 +189,15 @@ class _QuizPageState extends State<QuizPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Quiz com Vidas'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SeletorFase()),
+            );
+          },
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
