@@ -1,28 +1,13 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-import 'telalogin.dart';
 import 'seletorfase.dart';
+import 'dart:math';
 
-void main() {
-  runApp(QuizApp());
-}
-
-class QuizApp extends StatelessWidget {
+class Fase2Page extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: TelaLogin(),
-    );
-  }
+  _Fase2PageState createState() => _Fase2PageState();
 }
 
-class QuizPage extends StatefulWidget {
-  @override
-  _QuizPageState createState() => _QuizPageState();
-}
-
-class _QuizPageState extends State<QuizPage> {
+class _Fase2PageState extends State<Fase2Page> {
   int currentQuestionIndex = 0;
   int lives = 5;
   bool isOptionSelected = false;
@@ -30,29 +15,29 @@ class _QuizPageState extends State<QuizPage> {
 
   final List<Map<String, Object>> questions = [
     {
-      'question': 'Qual é a extensão padrão de arquivos JavaScript?',
-      'options': ['html', 'json', 'js', 'css'],
-      'correctAnswer': 'js',
+      'question': 'Qual comando do Git é usado para criar um novo branch?',
+      'options': ['git merge', 'git branch', 'git commit', 'git pull'],
+      'correctAnswer': 'git branch',
     },
     {
-      'question': 'Qual dos seguintes é um exemplo de sistema de controle de versão?',
-      'options': ['Jenkins', 'Docker', 'Git', 'Kubernetes'],
-      'correctAnswer': 'Git',
+      'question': 'Qual linguagem de programação é conhecida por sua forte tipagem e foco em segurança para desenvolvimento backend?',
+      'options': ['Python', 'JavaScript', 'Java', 'Ruby'],
+      'correctAnswer': 'Java',
     },
     {
-      'question': 'Qual a variável para inteiros?',
-      'options': ['float', 'int', 'double', 'char'],
-      'correctAnswer': 'int',
+      'question': 'Qual linguagem é amplamente usada para criar consultas em bancos de dados relacionais?',
+      'options': ['Python', 'SQL', 'HTML', 'C++'],
+      'correctAnswer': 'SQL',
     },
     {
-      'question': 'Em Python, como você imprime algo na tela?',
-      'options': ['echo()', 'System.out.println()', 'console.log()', 'print()'],
-      'correctAnswer': 'print()',
+      'question': 'Qual conceito em programação orientada a objetos permite que uma classe herde as características de outra classe?',
+      'options': ['Polimorfismo', 'Herança', 'Encapsulamento', 'Abstração'],
+      'correctAnswer': 'Herança',
     },
     {
-      'question': 'Em HTML, qual elemento é usado para criar um link?',
-      'options': ['<link>', '<a>', '<href>', '<url>'],
-      'correctAnswer': '<a>',
+      'question': 'Qual estrutura de dados utiliza o conceito LIFO (Last In, First Out)?',
+      'options': ['Lista', 'Fila', 'Árvore', 'Pilha'],
+      'correctAnswer': 'Pilha',
     },
   ];
 
@@ -77,20 +62,17 @@ class _QuizPageState extends State<QuizPage> {
       isAnswerCorrect = (selectedAnswer == correctAnswer);
 
       if (!isAnswerCorrect) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Você errou a pergunta!',
-              style: TextStyle(color: Colors.white),
-            ),
-            backgroundColor: Colors.red,
-            duration: Duration(seconds: 2),
-          ),
-        );
-
         lives--;
         if (lives == 0) {
           _showGameOverDialog();
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Você errou!'),
+              backgroundColor: Colors.red,
+              duration: Duration(seconds: 2),
+            ),
+          );
         }
       }
     });
@@ -108,9 +90,7 @@ class _QuizPageState extends State<QuizPage> {
       if (questionQueue.isEmpty) {
         _showWinDialog();
       } else {
-        if (currentQuestionIndex >= questionQueue.length) {
-          currentQuestionIndex = 0;
-        }
+        currentQuestionIndex = 0;
         isOptionSelected = false;
         isAnswerCorrect = false;
         shuffleOptions();
@@ -134,14 +114,17 @@ class _QuizPageState extends State<QuizPage> {
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text('Game Over'),
-        content: Text('Você perdeu todas as vidas.'),
+        content: Text('Você perdeu todas as vidas na Fase 2.'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(ctx).pop();
-              resetGame();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SeletorFase()),
+              );
             },
-            child: Text('Reiniciar'),
+            child: Text('Voltar'),
           ),
         ],
       ),
@@ -153,14 +136,17 @@ class _QuizPageState extends State<QuizPage> {
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text('Parabéns!'),
-        content: Text('Você completou o quiz com sucesso.'),
+        content: Text('Você completou a Fase 2 com sucesso.'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(ctx).pop();
-              resetGame();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SeletorFase()),
+              );
             },
-            child: Text('Reiniciar'),
+            child: Text('Voltar'),
           ),
         ],
       ),
@@ -171,15 +157,8 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     if (questionQueue.isEmpty) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text('Quiz com Vidas'),
-        ),
-        body: Center(
-          child: Text(
-            'Carregando...',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
+        appBar: AppBar(title: Text('Fase 2')),
+        body: Center(child: Text('Carregando...', style: TextStyle(fontSize: 20))),
       );
     }
 
@@ -187,14 +166,11 @@ class _QuizPageState extends State<QuizPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz com Vidas'),
+        title: Text('Fase 2'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SeletorFase()),
-            );
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SeletorFase()));
           },
         ),
       ),
@@ -218,11 +194,7 @@ class _QuizPageState extends State<QuizPage> {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
               child: ElevatedButton(
-                onPressed: isOptionSelected
-                    ? null
-                    : () {
-                  handleAnswer(option);
-                },
+                onPressed: isOptionSelected ? null : () => handleAnswer(option),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: isOptionSelected && option == question['correctAnswer']
                       ? Colors.green
