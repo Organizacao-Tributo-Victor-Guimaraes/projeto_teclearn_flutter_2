@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'fase2.dart';
 
 class SeletorFase extends StatelessWidget {
   @override
@@ -29,9 +30,23 @@ class SeletorFase extends StatelessWidget {
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                // lógica para outras fases
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Fase2Page()),
+                );
               },
-              child: Text('Fase 2 (Indisponível)'),
+              child: Text('Fase 2'),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: null, // Desabilitado
+              child: Text(
+                'Fase 3 (Indisponível)',
+                style: TextStyle(color: Colors.grey),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey.shade300,
+              ),
             ),
           ],
         ),
