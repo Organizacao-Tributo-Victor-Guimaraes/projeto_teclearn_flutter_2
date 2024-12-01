@@ -18,7 +18,9 @@ class SeletorFase extends StatelessWidget {
           children: [
             const Text(
               'Escolha a Fase',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, 
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
             ),
             const SizedBox(height: 20),
             ElevatedButton(

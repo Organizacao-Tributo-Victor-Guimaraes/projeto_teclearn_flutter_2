@@ -176,6 +176,7 @@ class _Fase2PageState extends State<Fase2Page> {
           },
         ),
       ),
+      backgroundColor: Colors.grey.shade900,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,

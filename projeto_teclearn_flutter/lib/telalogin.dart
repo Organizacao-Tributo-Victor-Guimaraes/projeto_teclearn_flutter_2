@@ -10,6 +10,7 @@ class TelaLogin extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Tela de Login'),
       ),
+      backgroundColor: Colors.grey.shade900,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
