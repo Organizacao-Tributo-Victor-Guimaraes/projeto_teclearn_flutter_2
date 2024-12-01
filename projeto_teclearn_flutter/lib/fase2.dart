@@ -159,7 +159,9 @@ class _Fase2PageState extends State<Fase2Page> {
   Widget build(BuildContext context) {
     if (questionQueue.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Fase 2')),
+        appBar: AppBar(
+          title: const Text('Fase 2')
+              ),
         body: const Center(child: Text('Carregando...', style: TextStyle(fontSize: 20))),
       );
     }
@@ -168,7 +170,13 @@ class _Fase2PageState extends State<Fase2Page> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fase 2'),
+        backgroundColor: const Color.fromARGB(255, 37, 91, 153),
+        title: const Text('LdP I | Fase 2',
+        style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -181,15 +189,21 @@ class _Fase2PageState extends State<Fase2Page> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          const Icon(
+          Icons.favorite,
+          color: Colors.red,
+          size: 30,
+        ),
+        const SizedBox(width: 8),
           Text(
             'Vidas: $lives',
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
           Text(
             question['question'] as String,
-            style: const TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20, color: Colors.white),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
