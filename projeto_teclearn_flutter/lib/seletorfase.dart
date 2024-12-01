@@ -9,20 +9,36 @@ class SeletorFase extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Seleção de Fases'),
+        backgroundColor: Colors.black,
+        title: const Text(
+          'Seleção de Fases',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
       ),
-      backgroundColor: Colors.grey.shade900,
-      body: Center(
+      backgroundColor: Colors.grey.shade900, 
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Text(
               'Escolha a Fase',
-              style: TextStyle(fontSize: 24, 
-              fontWeight: FontWeight.bold,
-              color: Colors.white),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                letterSpacing: 1.2,
+              ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
+            
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -30,9 +46,24 @@ class SeletorFase extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const QuizPage()),
                 );
               },
-              child: const Text('Fase 1'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple.shade300,
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text(
+                'Fase 1',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
+  
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -40,17 +71,39 @@ class SeletorFase extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const Fase2Page()),
                 );
               },
-              child: const Text('Fase 2'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue.shade300,
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text(
+                'Fase 2',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: null,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.grey.shade300,
-              ), // Desabilitado
+                backgroundColor: Colors.grey.shade700,
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
               child: const Text(
                 'Fase 3 (Indisponível)',
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Color.fromARGB(255, 180, 163, 163),
+                ),
               ),
             ),
           ],
