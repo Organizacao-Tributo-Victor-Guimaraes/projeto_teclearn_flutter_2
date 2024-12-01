@@ -10,17 +10,27 @@ class SeletorFase extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text(
-          'Seleção de Fases',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start, // Alinha à esquerda
+          children: const [
+            Icon(
+              Icons.book,
+              color: Colors.white,
+            ),
+            SizedBox(width: 8),
+            Text(
+              'Lógica e Programação I',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
-        centerTitle: true,
+        automaticallyImplyLeading: false, // Desativa o ícone de voltar
       ),
-      backgroundColor: Colors.grey.shade900, 
+      backgroundColor: Colors.grey.shade900,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
@@ -38,7 +48,14 @@ class SeletorFase extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40),
-            
+
+           // Image.asset(
+            //  'lib/assets/pinguin.png', 
+            //  height: 150,
+            //  fit: BoxFit.cover, 
+           // ),
+            //const SizedBox(height: 40),
+
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -47,7 +64,7 @@ class SeletorFase extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.shade300,
+                backgroundColor: Colors.blue.shade300,
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -63,7 +80,7 @@ class SeletorFase extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-  
+
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -88,6 +105,7 @@ class SeletorFase extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+
             ElevatedButton(
               onPressed: null,
               style: ElevatedButton.styleFrom(
@@ -98,7 +116,7 @@ class SeletorFase extends StatelessWidget {
                 ),
               ),
               child: const Text(
-                'Fase 3 (Indisponível)',
+                'Teste Final (Indisponível)',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
