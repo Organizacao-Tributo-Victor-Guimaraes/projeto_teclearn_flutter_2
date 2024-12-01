@@ -4,13 +4,15 @@ import 'telalogin.dart';
 import 'seletorfase.dart';
 
 void main() {
-  runApp(QuizApp());
+  runApp(const QuizApp());
 }
 
 class QuizApp extends StatelessWidget {
+  const QuizApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: TelaLogin(),
     );
@@ -18,6 +20,8 @@ class QuizApp extends StatelessWidget {
 }
 
 class QuizPage extends StatefulWidget {
+  const QuizPage({super.key});
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
@@ -78,7 +82,7 @@ class _QuizPageState extends State<QuizPage> {
 
       if (!isAnswerCorrect) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text(
               'Você errou a pergunta!',
               style: TextStyle(color: Colors.white),
@@ -133,15 +137,15 @@ class _QuizPageState extends State<QuizPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Game Over'),
-        content: Text('Você perdeu todas as vidas.'),
+        title: const Text('Game Over'),
+        content: const Text('Você perdeu todas as vidas.'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(ctx).pop();
               resetGame();
             },
-            child: Text('Reiniciar'),
+            child: const Text('Reiniciar'),
           ),
         ],
       ),
@@ -152,15 +156,15 @@ class _QuizPageState extends State<QuizPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Parabéns!'),
-        content: Text('Você completou o quiz com sucesso.'),
+        title: const Text('Parabéns!'),
+        content: const Text('Você completou o quiz com sucesso.'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(ctx).pop();
               resetGame();
             },
-            child: Text('Reiniciar'),
+            child: const Text('Reiniciar'),
           ),
         ],
       ),
@@ -172,9 +176,9 @@ class _QuizPageState extends State<QuizPage> {
     if (questionQueue.isEmpty) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Quiz com Vidas'),
+          title: const Text('Quiz com Vidas'),
         ),
-        body: Center(
+        body: const Center(
           child: Text(
             'Carregando...',
             style: TextStyle(fontSize: 20),
@@ -187,13 +191,13 @@ class _QuizPageState extends State<QuizPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz com Vidas'),
+        title: const Text('Quiz com Vidas'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => SeletorFase()),
+              MaterialPageRoute(builder: (context) => const SeletorFase()),
             );
           },
         ),
@@ -204,16 +208,16 @@ class _QuizPageState extends State<QuizPage> {
         children: [
           Text(
             'Vidas: $lives',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
             question['question'] as String,
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ...(question['options'] as List<String>).map((option) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
@@ -233,11 +237,11 @@ class _QuizPageState extends State<QuizPage> {
                 child: Text(option),
               ),
             );
-          }).toList(),
-          SizedBox(height: 20),
+          }),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: isOptionSelected ? nextQuestion : null,
-            child: Text('Próxima Pergunta'),
+            child: const Text('Próxima Pergunta'),
           ),
         ],
       ),

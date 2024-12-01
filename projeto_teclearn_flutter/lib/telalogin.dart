@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'seletorfase.dart';
 
 class TelaLogin extends StatelessWidget {
+  const TelaLogin({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela de Login'),
+        title: const Text('Tela de Login'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -14,30 +16,30 @@ class TelaLogin extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Usuário',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 10),
-            TextField(
+            const SizedBox(height: 10),
+            const TextField(
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Senha',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Navegar para a tela de seleção de fases
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SeletorFase()),
+                  MaterialPageRoute(builder: (context) => const SeletorFase()),
                 );
               },
-              child: Text('Entrar'),
+              child: const Text('Entrar'),
             ),
           ],
         ),

@@ -3,49 +3,52 @@ import 'main.dart';
 import 'fase2.dart';
 
 class SeletorFase extends StatelessWidget {
+  const SeletorFase({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Seleção de Fases'),
+        title: const Text('Seleção de Fases'),
       ),
+      backgroundColor: Colors.grey.shade900,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Escolha a Fase',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => QuizPage()),
+                  MaterialPageRoute(builder: (context) => const QuizPage()),
                 );
               },
-              child: Text('Fase 1'),
+              child: const Text('Fase 1'),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => Fase2Page()),
+                  MaterialPageRoute(builder: (context) => const Fase2Page()),
                 );
               },
-              child: Text('Fase 2'),
+              child: const Text('Fase 2'),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: null, // Desabilitado
-              child: Text(
-                'Fase 3 (Indisponível)',
-                style: TextStyle(color: Colors.grey),
-              ),
+              onPressed: null,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.grey.shade300,
+              ), // Desabilitado
+              child: const Text(
+                'Fase 3 (Indisponível)',
+                style: TextStyle(color: Colors.grey),
               ),
             ),
           ],
