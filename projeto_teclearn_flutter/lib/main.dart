@@ -208,7 +208,7 @@ class _QuizPageState extends State<QuizPage> {
           },
         ),
       ),
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: const Color.fromARGB(255, 48, 92, 117),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
