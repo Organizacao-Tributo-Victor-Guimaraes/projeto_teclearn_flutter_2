@@ -81,10 +81,8 @@ class TelaLogin extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // Botão de Login
               ElevatedButton(
                 onPressed: () {
-                  // Navegar para a tela de seleção de fases
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -96,7 +94,7 @@ class TelaLogin extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  backgroundColor: Colors.deepPurple,
+                  backgroundColor: Colors.blue.shade300,
                 ),
                 child: const Text(
                   'Entrar',
