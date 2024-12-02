@@ -191,7 +191,13 @@ class _QuizPageState extends State<QuizPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quiz com Vidas'),
+         backgroundColor: const Color.fromARGB(255, 37, 91, 153),
+        title: const Text('LdP I | Fase 1',
+        style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -202,19 +208,26 @@ class _QuizPageState extends State<QuizPage> {
           },
         ),
       ),
+      backgroundColor: Colors.grey.shade900,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+           const Icon(
+          Icons.favorite,
+          color: Colors.red,
+          size: 30,
+        ),
+        const SizedBox(width: 8),
           Text(
             'Vidas: $lives',
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
           Text(
             question['question'] as String,
-            style: const TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20, color: Colors.white),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
