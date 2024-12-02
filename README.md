@@ -1,4 +1,0 @@
-# projeto_teclearn_flutter_2
-Segundo repositório do projeto flutter, este repositório foi solicitado pelo professor Maycon.
-
-O projeto é um sistema de quiz, em que o usuário será apresentado a perguntas e terá que responder corretamente para avançar no quiz. O quiz consiste de várias perguntas relacionadas a tecnologia, sendo que cada pergunta tem 4 opções de resposta. O usuário deve responder todas as questões corretamente para finalizar o quiz. Caso o usuário responda incorretamente, a pergunta que foi respondida de forma errada irá para o fim da fila, fazendo com que o usuário tenha que responder novamente. 
