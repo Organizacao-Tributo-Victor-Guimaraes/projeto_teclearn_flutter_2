@@ -1,6 +1,6 @@
 # Projeto_Teclearn_Flutter
 ------------------------------
-Aplicativo de Quiz Interativo
+Aplicativo de Quiz Interativo: `Teclearn`
 ------------------------------
 Segundo repositório do projeto flutter, este repositório foi solicitado pelo professor Maycon. <br>
 
