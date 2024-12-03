@@ -13,6 +13,9 @@ O projeto é um sistema de quiz, em que o usuário será apresentado a perguntas
 Sobre a documentação e os arquivos de gerenciamento de configuração: <br>
 Os arquivos do primeiro bimestre estão em uma pasta separada dos arquivos mais recentes do último bimestre, sendo Artefatos_Teclearn_V1, a pasta do primeiro bimestre e Artefatos_Teclearn_V2, sendo a pasta do último bimestre. <br>
 
+------------------------------
+URL do vídeo no YouTube: https://youtu.be/--qAH3F2OGk?si=kbTc4DCMLZMWb-e4
+------------------------------
 
 Desenvolvido por: <br>
 [João Barros Guatura da Costa](https://github.com/JoaoGuatura "João Barros"). `RA: 22013545-2`<br>
